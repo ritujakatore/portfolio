@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rituja Katore — IT Delivery & Agile Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#080C10;
+  --ink2:#0F1620;
+  --paper:#F0EBE1;
+  --paper2:#E6DFD4;
+  --saffron:#F5620F;
+  --saffron2:#C44C09;
+  --white:#F8F5F0;
+  --muted:#5C6470;
+  --teal:#0A7373;
+  --red:#B83232;
+  --dim:rgba(248,245,240,0.08);
+  --dim2:rgba(248,245,240,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--white);
+  font-family:'Outfit',sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* CURSOR */
+#cur{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--saffron);
+  position:fixed;top:0;left:0;pointer-events:none;
+  z-index:9999;transform:translate(-50%,-50%);
+  transition:width .2s,height .2s,opacity .2s;
+  mix-blend-mode:difference;
+}
+#cur.hover{width:44px;height:44px;opacity:.25}
+
+/* GRAIN */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9997;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1.1rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(8,12,16,0);
+  transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(8,12,16,0.95);
+  border-color:rgba(248,245,240,0.06);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.15rem;letter-spacing:.16em;color:var(--white);
+}
+.nav-logo span{color:var(--saffron)}
+.nav-links{list-style:none;display:flex;gap:2.5rem}
+.nav-links a{
+  font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(248,245,240,.65);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--saffron)}
+
+/* ══ HERO — LEADS WITH TODAY, NOT THE PAST ══ */
+.hero{
+  min-height:100vh;
+  padding:0 2.5rem;
+  display:grid;
+  grid-template-rows:1fr auto;
+  position:relative;overflow:hidden;
+}
+
+/* big ambient letter */
+.hero-ambient{
+  position:absolute;right:-0.05em;top:50%;
+  transform:translateY(-52%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(200px,38vw,500px);
+  line-height:1;letter-spacing:-.02em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(245,98,15,.07);
+  pointer-events:none;user-select:none;
+  white-space:nowrap;
+}
+
+.hero-content{
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding-top:7rem;
+  max-width:820px;
+  position:relative;z-index:2;
+}
+
+.hero-status{
+  display:inline-flex;align-items:center;gap:.6rem;
+  margin-bottom:1.8rem;
+}
+.status-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--saffron);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.status-text{
+  font-family:'Special Elite',monospace;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(248,245,240,.7);
+}
+.status-text strong{color:var(--saffron);font-weight:400}
+
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(68px,12vw,160px);
+  line-height:.88;letter-spacing:.02em;
+  color:var(--white);
+  margin-bottom:2rem;
+}
+.hero-name .last{
+  display:block;
+  -webkit-text-stroke:1.5px rgba(248,245,240,.3);
+  color:transparent;
+}
+
+.hero-what{
+  display:flex;align-items:flex-start;gap:3rem;
+  flex-wrap:wrap;
+}
+.hero-role-line{
+  flex:1;min-width:260px;
+}
+.hero-role-line h2{
+  font-size:clamp(1.1rem,2.5vw,1.6rem);
+  font-weight:400;line-height:1.45;
+  color:rgba(248,245,240,.75);
+  margin-bottom:1.2rem;
+}
+.hero-role-line h2 strong{
+  color:var(--white);font-weight:600;
+  display:block;font-size:1.1em;
+}
+.hero-cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-primary{
+  font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:.8rem 1.8rem;
+  background:var(--saffron);color:var(--ink);
+  border:none;text-decoration:none;display:inline-block;
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:#ff7a32;transform:translateY(-2px)}
+.btn-outline{
+  font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:.8rem 1.8rem;
+  background:transparent;color:rgba(248,245,240,.75);
+  border:1px solid rgba(248,245,240,.25);text-decoration:none;display:inline-block;
+  transition:border-color .2s,color .2s;
+}
+.btn-outline:hover{border-color:rgba(248,245,240,.65);color:var(--white)}
+
+.hero-proof{
+  display:flex;flex-direction:column;gap:.8rem;
+  flex-shrink:0;
+}
+.proof-item{
+  display:flex;align-items:baseline;gap:.7rem;
+  padding:.9rem 1.2rem;
+  border:1px solid rgba(248,245,240,.07);
+  background:rgba(248,245,240,.02);
+  min-width:180px;
+}
+.proof-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;line-height:1;color:var(--saffron);
+}
+.proof-lbl{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(248,245,240,.6)}
+
+.hero-floor{
+  position:relative;z-index:2;
+  padding:1.5rem 0 3rem;
+  border-top:1px solid rgba(248,245,240,.06);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.hero-iim{
+  display:inline-flex;align-items:center;gap:1rem;
+  margin-bottom:1.6rem;
+}
+.iim-pill{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.05rem;letter-spacing:.14em;
+  background:var(--saffron);
+  color:var(--ink);
+  padding:.28rem 1rem .22rem;
+  line-height:1;
+}
+.iim-sub{
+  font-family:'Special Elite',monospace;
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(248,245,240,.75);
+}
+.iim-sub strong{color:rgba(248,245,240,.95);font-weight:400}
+.hero-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.hbadge{
+  font-size:.6rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:.25rem .75rem;
+  border:1px solid rgba(248,245,240,.2);
+  color:rgba(248,245,240,.6);
+}
+.hbadge.iim-skip{display:none}
+.scroll-nudge{
+  display:flex;align-items:center;gap:.6rem;
+  font-family:'Special Elite',monospace;
+  font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(248,245,240,.7);
+}
+.nudge-arrow{
+  width:28px;height:1px;background:rgba(248,245,240,.18);
+  position:relative;
+}
+.nudge-arrow::after{
+  content:'';position:absolute;right:0;top:-3px;
+  border:3px solid transparent;
+  border-left:5px solid rgba(248,245,240,.18);
+  border-top:none;border-bottom:none;
+  transform:rotate(90deg)translateX(2px);
+}
+
+/* ══ TICKER ══ */
+.ticker{
+  background:var(--saffron);
+  padding:.75rem 0;overflow:hidden;white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-flex;gap:3rem;
+  animation:tick 20s linear infinite;
+}
+.ticker-inner span{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;letter-spacing:.1em;color:var(--ink);
+  flex-shrink:0;
+}
+.ticker-sep{color:rgba(0,0,0,.65)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══ WORK ══ */
+.work-section{
+  padding:7rem 2.5rem;
+  background:var(--ink);
+}
+.work-inner{max-width:1160px;margin:0 auto}
+.overline{
+  font-family:'Special Elite',monospace;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--saffron);
+  display:flex;align-items:center;gap:.8rem;
+  margin-bottom:3.5rem;
+}
+.overline::before{content:'//'}
+
+.work-item{
+  display:grid;
+  grid-template-columns:60px 1fr;
+  gap:2.5rem;
+  padding:3.5rem 0;
+  border-top:1px solid rgba(248,245,240,.06);
+  align-items:start;
+}
+.work-item:last-child{border-bottom:1px solid rgba(248,245,240,.06)}
+.work-idx{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.5rem;line-height:1;
+  color:rgba(248,245,240,.18);
+  padding-top:.2rem;
+}
+.work-body{}
+.work-top{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:2rem;flex-wrap:wrap;
+  margin-bottom:1.2rem;
+}
+.work-title-block{}
+.work-co{
+  font-family:'Special Elite',monospace;
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.4rem;
+}
+.work-co-badge{
+  font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:.15rem .5rem;
+  background:rgba(245,98,15,.12);color:var(--saffron);
+  border:1px solid rgba(245,98,15,.25);margin-left:.6rem;
+  vertical-align:middle;
+}
+.work-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,4.5vw,3.5rem);
+  line-height:.92;letter-spacing:.02em;color:var(--white);
+}
+.work-date{
+  font-family:'Special Elite',monospace;
+  font-size:.68rem;letter-spacing:.1em;
+  color:rgba(248,245,240,.6);
+  flex-shrink:0;padding-top:.3rem;
+}
+.work-intro{
+  font-size:.9rem;line-height:1.8;
+  color:rgba(248,245,240,.75);
+  max-width:640px;margin-bottom:2rem;
+}
+.work-wins{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1px;
+  background:rgba(248,245,240,.05);
+  border:1px solid rgba(248,245,240,.05);
+  margin-bottom:1.5rem;
+}
+.win{
+  background:var(--ink);
+  padding:1.2rem 1.4rem;
+  transition:background .2s;
+}
+.win:hover{background:var(--ink2)}
+.win-label{
+  font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.4rem;
+}
+.win-text{
+  font-size:.83rem;line-height:1.65;
+  color:rgba(248,245,240,.78);
+}
+.work-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.wtag{
+  font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:.22rem .6rem;
+  color:rgba(248,245,240,.72);
+  border:1px solid rgba(248,245,240,.22);
+}
+
+/* ══ CAPABILITY ══ */
+.cap-section{
+  background:var(--paper);color:var(--ink);
+  padding:7rem 2.5rem;
+}
+.cap-inner{max-width:1160px;margin:0 auto}
+.cap-section .overline{color:var(--saffron2)}
+.cap-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:.88;letter-spacing:.01em;
+  color:var(--ink);margin-bottom:3.5rem;
+}
+.cap-hed span{color:var(--saffron2)}
+.cap-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:rgba(10,10,10,.1);
+  border:1px solid rgba(10,10,10,.1);
+}
+.cap-cell{
+  background:var(--paper);
+  padding:1.8rem 1.4rem;
+  cursor:default;
+  transition:background .25s;
+  position:relative;overflow:hidden;
+}
+.cap-cell:hover{background:var(--ink)}
+.cap-cell:hover .cap-name{color:var(--white)}
+.cap-cell:hover .cap-body{color:rgba(248,245,240,.72)}
+.cap-cell:hover .cap-n{color:var(--saffron);opacity:.5}
+.cap-cell:hover .cseg.on{background:var(--saffron)}
+.cap-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.8rem;line-height:1;
+  color:var(--ink);opacity:.06;
+  position:absolute;top:.3rem;right:.6rem;
+  transition:color .25s,opacity .25s;
+}
+.cap-ico{font-size:1.2rem;margin-bottom:.9rem;display:block}
+.cap-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.35rem;letter-spacing:.03em;
+  color:var(--ink);line-height:1.05;
+  margin-bottom:.45rem;
+  transition:color .25s;
+}
+.cap-body{
+  font-size:.74rem;line-height:1.65;
+  color:rgba(10,10,10,.72);
+  transition:color .25s;
+}
+.cbar{display:flex;gap:2px;margin-top:.9rem}
+.cseg{height:2px;flex:1;background:rgba(10,10,10,.1)}
+.cseg.on{background:var(--saffron2)}
+
+/* ══ CERTS ══ */
+.certs-section{
+  background:var(--ink2);
+  padding:7rem 2.5rem;
+}
+.certs-inner{max-width:1160px;margin:0 auto}
+.cert-row{
+  display:flex;align-items:center;gap:2rem;
+  padding:1.3rem 0;
+  border-bottom:1px solid rgba(248,245,240,.05);
+  transition:padding-left .22s;cursor:default;
+}
+.cert-row:first-child{border-top:1px solid rgba(248,245,240,.05)}
+.cert-row:hover{padding-left:.8rem}
+.cert-row:hover .cert-name{color:var(--saffron)}
+.cert-i{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.8rem;color:rgba(248,245,240,.7);
+  width:1.8rem;flex-shrink:0;
+}
+.cert-org{
+  font-family:'Special Elite',monospace;
+  font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(245,98,15,1);
+  width:130px;flex-shrink:0;
+}
+.cert-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;letter-spacing:.03em;
+  color:var(--white);flex:1;line-height:1;
+  transition:color .2s;
+}
+.cert-yr{
+  font-size:.65rem;color:rgba(248,245,240,.65);
+  letter-spacing:.06em;flex-shrink:0;
+}
+
+/* ══ ORIGIN STORY — after proving her worth ══ */
+.story-section{
+  background:var(--paper2);color:var(--ink);
+  padding:7rem 2.5rem;
+  position:relative;overflow:hidden;
+}
+.story-section::before{
+  content:'ORIGIN';
+  position:absolute;right:-1rem;bottom:-1rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18rem;line-height:1;letter-spacing:.05em;
+  color:rgba(10,10,10,.04);
+  pointer-events:none;
+}
+.story-inner{max-width:1160px;margin:0 auto}
+.story-section .overline{color:var(--saffron-dim,#8B3200)}
+.story-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,6vw,5.5rem);
+  line-height:.9;letter-spacing:.01em;
+  color:var(--ink);
+  margin-bottom:3.5rem;
+  max-width:800px;
+}
+.story-hed em{color:var(--ink);font-style:italic}
+
+/* two-col story layout */
+.story-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:start;
+}
+.story-left{}
+.story-lede{
+  font-size:1.05rem;font-weight:500;line-height:1.65;
+  color:var(--ink);margin-bottom:1.5rem;
+  border-left:3px solid var(--saffron2);
+  padding-left:1.2rem;
+}
+.story-body{
+  font-size:.88rem;line-height:1.85;
+  color:rgba(10,10,10,.75);
+}
+.story-body p+p{margin-top:1.2rem}
+
+.story-right{display:flex;flex-direction:column;gap:1.5rem}
+.story-fact{
+  padding:1.4rem 1.6rem;
+  background:var(--paper);
+  border:1px solid rgba(10,10,10,.08);
+  position:relative;
+}
+.story-fact::before{
+  content:'';
+  position:absolute;top:0;left:0;
+  width:3px;height:100%;
+  background:var(--saffron2);
+}
+.sf-label{
+  font-family:'Special Elite',monospace;
+  font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#7A2E00;margin-bottom:.5rem;
+}
+.sf-text{
+  font-size:.85rem;line-height:1.65;
+  color:rgba(10,10,10,.8);
+}
+.sf-text strong{color:var(--ink);font-weight:600}
+
+/* what it built */
+.what-it-built{
+  margin-top:3.5rem;
+  padding-top:3rem;
+  border-top:1px solid rgba(10,10,10,.1);
+}
+.wib-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;letter-spacing:.03em;
+  color:var(--ink);margin-bottom:1.5rem;
+}
+.wib-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:rgba(10,10,10,.08);
+  border:1px solid rgba(10,10,10,.08);
+}
+.wib-cell{
+  background:var(--paper2);
+  padding:1.2rem 1.2rem;
+  transition:background .2s;
+}
+.wib-cell:hover{background:var(--ink)}
+.wib-cell:hover .wib-title{color:var(--white)}
+.wib-cell:hover .wib-sub{color:rgba(248,245,240,.65)}
+.wib-ico{font-size:1rem;margin-bottom:.6rem;display:block}
+.wib-title{
+  font-size:.82rem;font-weight:600;
+  color:var(--ink);margin-bottom:.25rem;
+  transition:color .2s;
+}
+.wib-sub{
+  font-size:.72rem;line-height:1.55;
+  color:rgba(10,10,10,.68);
+  transition:color .2s;
+}
+
+/* ══ EDUCATION ══ */
+.edu-section{
+  background:var(--ink);
+  padding:7rem 2.5rem;
+}
+.edu-inner{max-width:1160px;margin:0 auto}
+.edu-row{
+  display:grid;
+  grid-template-columns:100px 1fr auto;
+  gap:2rem;align-items:baseline;
+  padding:2rem 0;
+  border-bottom:1px solid rgba(248,245,240,.05);
+}
+.edu-row:first-child{border-top:1px solid rgba(248,245,240,.05)}
+.edu-yr{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;line-height:1;
+  color:rgba(248,245,240,.18);
+}
+.edu-info h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.85rem;letter-spacing:.02em;
+  color:var(--white);line-height:1;margin-bottom:.35rem;
+}
+.edu-inst{
+  font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:#2BBFBF;margin-bottom:.2rem;
+}
+.edu-note{font-size:.77rem;color:rgba(248,245,240,.65)}
+.edu-badge{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;letter-spacing:.08em;
+  color:var(--saffron);flex-shrink:0;
+}
+
+/* ══ CONTACT ══ */
+.contact-section{
+  background:var(--saffron);
+  padding:7rem 2.5rem;
+  position:relative;overflow:hidden;
+}
+.contact-section::after{
+  content:'TALK';
+  position:absolute;right:-.05em;bottom:-.1em;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22rem;line-height:.8;
+  color:rgba(0,0,0,.07);pointer-events:none;
+}
+.contact-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.contact-top{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;gap:3rem;flex-wrap:wrap;
+  margin-bottom:3.5rem;
+}
+.contact-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,9vw,8rem);
+  line-height:.88;letter-spacing:.01em;
+  color:var(--ink);
+}
+.contact-note{
+  font-size:.88rem;line-height:1.7;
+  color:rgba(0,0,0,.82);
+  max-width:300px;text-align:right;
+}
+.clinks{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1px;
+  background:rgba(0,0,0,.12);
+  border:1px solid rgba(0,0,0,.12);
+}
+.clink{
+  background:var(--saffron);
+  padding:1.4rem 1.5rem;
+  text-decoration:none;color:var(--ink);
+  display:flex;align-items:center;gap:.9rem;
+  transition:background .2s;
+}
+.clink:hover{background:var(--ink);color:var(--saffron)}
+.clink:hover .clink-lbl{color:rgba(245,98,15,.5)}
+.clink:hover .clink-ico{border-color:rgba(245,98,15,.4)}
+.clink-ico{
+  width:38px;height:38px;flex-shrink:0;
+  border:1.5px solid rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:600;
+  transition:border-color .2s;
+}
+.clink-lbl{
+  font-family:'Special Elite',monospace;
+  font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(0,0,0,.72);transition:color .2s;
+}
+.clink-val{font-size:.85rem;font-weight:500;margin-top:.12rem}
+
+footer{
+  background:#040608;
+  padding:1.4rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
+}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:.88rem;letter-spacing:.12em;color:rgba(248,245,240,.65)}
+.fr{font-size:.62rem;letter-spacing:.08em;color:rgba(248,245,240,.6)}
+
+/* ══ CASE STUDIES ══ */
+
+/* card wrapper */
+.cst{
+  font-size:.6rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  padding:.2rem .6rem;
+  background:rgba(10,10,10,.06);
+  color:rgba(10,10,10,.72);
+  border:1px solid rgba(10,10,10,.15);
+}
+.csm{text-align:right}
+.csm-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;line-height:1;
+  color:var(--saffron2);
+}
+.csm-l{
+  font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(10,10,10,.72);line-height:1.4;margin-top:.15rem;
+}
+
+/* expanded body */
+
+
+
+/* problems */
+
+/* role list */
+
+/* phases */
+
+/* outcomes */
+
+@media(max-width:800px){
+  
+  
+  
+  
+  
+}
+@media(max-width:560px){
+  
+  
+}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rvl{opacity:0;transform:translateX(-30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rvl.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .cap-grid{grid-template-columns:repeat(2,1fr)}
+  .story-cols{grid-template-columns:1fr;gap:2.5rem}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .cap-grid{grid-template-columns:1fr}
+  .hero-what{flex-direction:column}
+  .work-item{grid-template-columns:1fr;gap:1rem}
+  .work-idx{display:none}
+  .edu-row{grid-template-columns:1fr;gap:.5rem}
+  .edu-yr{display:none}
+  .edu-badge{display:none}
+  nav,section,.hero{padding-left:1.4rem;padding-right:1.4rem}
+}
+
+
+/* ════════ CASE STUDIES — FULL CSS ════════
+   .cs-topbar  → DARK  #080C10
+   .cs-body    → LIGHT #F0EBE1
+   .cs-outcomes → DARK #080C10
+   Everything else inherits from .cs-item → LIGHT
+════════════════════════════════════════ */
+.cs-section{background:var(--paper);color:var(--ink);padding:7rem 2.5rem}
+.cs-inner{max-width:1160px;margin:0 auto}
+.cs-section .overline{color:var(--saffron2)}
+.cs-intro-row{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;margin-bottom:5rem}
+.cs-hed{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6rem);line-height:.88;letter-spacing:.01em;color:var(--ink)}
+.cs-hed span{color:var(--saffron2)}
+.cs-intro-note{font-size:.82rem;line-height:1.7;color:rgba(10,10,10,.72);max-width:260px;text-align:right;border-right:2px solid var(--saffron2);padding-right:1rem}
+.cs-item{margin-bottom:5rem;border:1px solid rgba(10,10,10,.12);background:var(--paper);overflow:hidden}
+.cs-item:last-child{margin-bottom:0}
+
+/* TOPBAR = DARK INK */
+.cs-topbar{background:var(--ink);padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+.cs-num{font-family:'Special Elite',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,245,240,.65);margin-bottom:.4rem}
+/* CLIENT NAME = saffron — visible on dark AND light */
+.cs-client{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:.03em;line-height:.92;color:var(--saffron);margin-bottom:.4rem}
+.cs-client-tagline{font-size:.8rem;color:rgba(248,245,240,.78);margin-top:.3rem;max-width:500px;line-height:1.55}
+.cs-meta-pills{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;flex-shrink:0}
+.cs-pill{font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .9rem;border:1px solid rgba(245,98,15,.4);color:#F5A27A;white-space:nowrap}
+.cs-pill.green{border-color:rgba(43,191,191,.4);color:#5ECECE}
+.cs-pill.white{border-color:rgba(248,245,240,.35);color:rgba(248,245,240,.85)}
+
+/* BODY = LIGHT PAPER */
+.cs-body{background:var(--paper);padding:2.5rem 2rem}
+.cs-challenge{display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(10,10,10,.1);margin-bottom:2.5rem;align-items:start}
+.cs-challenge-label{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;color:var(--ink);line-height:1}
+.cs-challenge-label small{display:block;font-family:'Special Elite',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--saffron2);margin-bottom:.5rem;font-weight:400}
+.cs-challenge-text{font-size:.9rem;line-height:1.85;color:#1A1A1A}
+.cs-challenge-text p+p{margin-top:.9rem}
+.cs-two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+.cs-col-head{font-family:'Special Elite',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron2);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.cs-col-head::before{content:'//'}
+
+/* MODULES — light bg, dark text; hover flips to dark bg, light text */
+.cs-modules{display:flex;flex-direction:column;gap:1px;background:rgba(10,10,10,.1);border:1px solid rgba(10,10,10,.1)}
+.cs-module{background:var(--paper);padding:.95rem 1.1rem;display:flex;align-items:flex-start;gap:.85rem;transition:background .2s}
+.cs-module:hover{background:var(--ink)}
+.cs-mod-dot{width:6px;height:6px;border-radius:50%;background:var(--saffron2);flex-shrink:0;margin-top:.38rem}
+.cs-mod-name{font-size:.83rem;font-weight:600;color:#0A0A0A;transition:color .2s;min-width:130px}
+.cs-mod-desc{font-size:.76rem;color:rgba(10,10,10,.68);transition:color .2s;line-height:1.5}
+.cs-module:hover .cs-mod-name{color:#F8F5F0}
+.cs-module:hover .cs-mod-desc{color:rgba(248,245,240,.72)}
+
+/* WHAT I DID — light bg */
+.cs-did{display:flex;flex-direction:column;gap:.75rem}
+.cs-did-item{padding:1rem 1.1rem;background:rgba(10,10,10,.04);border-left:3px solid rgba(10,10,10,.15);font-size:.85rem;line-height:1.7;color:#1A1A1A;transition:border-color .2s,background .2s}
+.cs-did-item:hover{border-left-color:var(--saffron2);background:rgba(196,76,9,.05);color:#0A0A0A}
+.cs-did-item strong{display:block;font-weight:600;color:#0A0A0A;margin-bottom:.25rem;font-size:.84rem}
+
+/* JOURNEY — light bg */
+.cs-journey{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(10,10,10,.1)}
+.cs-journey-head{font-family:'Special Elite',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron2);margin-bottom:1.5rem}
+.cs-journey-head::before{content:'// '}
+.cs-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(10,10,10,.1);border:1px solid rgba(10,10,10,.1);counter-reset:phase}
+.cs-phase{background:var(--paper);padding:1.2rem 1rem;position:relative;counter-increment:phase;transition:background .2s}
+.cs-phase:hover{background:#E8E1D2}
+.cs-phase::before{content:counter(phase,decimal-leading-zero);font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:rgba(10,10,10,.14);display:block;margin-bottom:.5rem}
+.cs-phase-name{font-size:.8rem;font-weight:600;color:#0A0A0A;margin-bottom:.3rem}
+.cs-phase-desc{font-size:.73rem;line-height:1.6;color:rgba(10,10,10,.65)}
+.cs-phase-arrow{position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:16px;height:16px;background:var(--saffron2);clip-path:polygon(0 0,100% 50%,0 100%);z-index:1}
+.cs-phase:last-child .cs-phase-arrow{display:none}
+
+/* OUTCOMES = DARK INK */
+.cs-outcomes{background:var(--ink);padding:2.2rem 2rem}
+.cs-outcomes-head{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:#F8F5F0;margin-bottom:1.4rem;display:flex;align-items:center;gap:.8rem}
+.cs-outcomes-head::before{content:'';display:block;width:24px;height:2px;background:var(--saffron)}
+.cs-outcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(248,245,240,.08);margin-bottom:1.5rem}
+.cs-outcome{background:var(--ink);padding:1.4rem 1rem;text-align:center}
+.cs-outcome-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;color:var(--saffron)}
+.cs-outcome-lbl{font-size:.67rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(248,245,240,.82);margin-top:.35rem;line-height:1.45}
+.cs-quote{padding-top:1.5rem;border-top:1px solid rgba(248,245,240,.08);font-family:'Special Elite',monospace;font-size:.86rem;line-height:1.8;color:rgba(248,245,240,.88);font-style:italic;padding-left:1.2rem;border-left:3px solid rgba(245,98,15,.6)}
+
+@media(max-width:860px){
+  .cs-two-col{grid-template-columns:1fr}
+  .cs-challenge{grid-template-columns:1fr}
+  .cs-intro-row{grid-template-columns:1fr}
+  .cs-intro-note{text-align:left;border-right:none;border-left:2px solid var(--saffron2);padding-right:0;padding-left:1rem}
+}
+@media(max-width:560px){
+  .cs-body{padding:1.5rem 1.2rem}
+  .cs-topbar{padding:1.4rem 1.2rem}
+  .cs-outcomes{padding:1.6rem 1.2rem}
+}</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">R<span>K</span></div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#story">My Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-ambient">RK</div>
+  <div class="hero-content">
+    <div class="hero-status rv">
+      <div class="status-dot"></div>
+      <div class="status-text">Open to opportunities &nbsp;·&nbsp; <strong>Pune / Remote</strong></div>
+    </div>
+    <div class="hero-name rv">
+      Rituja
+      <span class="last">Katore</span>
+    </div>
+    <div class="hero-iim rv">
+      <div class="iim-pill">IIM Nagpur</div>
+      <div class="iim-sub">MBA · Strategy &amp; Operations &nbsp;·&nbsp; <strong>Class of 2024</strong></div>
+    </div>
+    <div class="hero-what rv">
+      <div class="hero-role-line">
+        <h2>
+          <strong>I deliver IT projects. I lead Agile teams. I make ERP implementations work.</strong>
+          Certified ScrumMaster · IIM Nagpur MBA · Odoo Certified Partner — I close the gap between business problems and working software solutions.
+        </h2>
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn-primary">Let's talk</a>
+          <a href="#work" class="btn-outline">See my work ↓</a>
+        </div>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <div class="proof-num">25%</div>
+          <div class="proof-lbl">Faster delivery<br>on Agile teams</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">30%</div>
+          <div class="proof-lbl">Manual work<br>eliminated</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">3+</div>
+          <div class="proof-lbl">Client ERP<br>rollouts owned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-floor rv">
+    <div class="hero-badges">
+      <span class="hbadge">CSM® · Scrum Alliance 2025</span>
+      <span class="hbadge">Six Sigma Green Belt · KPMG</span>
+      <span class="hbadge">Odoo Certified Partner</span>
+      <span class="hbadge">Power BI · Microsoft</span>
+    </div>
+    <div class="scroll-nudge">
+      <span>Scroll</span>
+      <div class="nudge-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>IT Delivery</span><span class="ticker-sep">◆</span>
+    <span>Scrum Master</span><span class="ticker-sep">◆</span>
+    <span>ERP Implementation</span><span class="ticker-sep">◆</span>
+    <span>Business Analyst</span><span class="ticker-sep">◆</span>
+    <span>Agile Project Management</span><span class="ticker-sep">◆</span>
+    <span>IIM Nagpur MBA</span><span class="ticker-sep">◆</span>
+    <span>Power BI</span><span class="ticker-sep">◆</span>
+    <span>Process Improvement</span><span class="ticker-sep">◆</span>
+    <span>IT Delivery</span><span class="ticker-sep">◆</span>
+    <span>Scrum Master</span><span class="ticker-sep">◆</span>
+    <span>ERP Implementation</span><span class="ticker-sep">◆</span>
+    <span>Business Analyst</span><span class="ticker-sep">◆</span>
+    <span>Agile Project Management</span><span class="ticker-sep">◆</span>
+    <span>IIM Nagpur MBA</span><span class="ticker-sep">◆</span>
+    <span>Power BI</span><span class="ticker-sep">◆</span>
+    <span>Process Improvement</span><span class="ticker-sep">◆</span>
+  </div>
+</div>
+
+<!-- ══ WORK ══ -->
+<section class="work-section" id="work">
+  <div class="work-inner">
+    <div class="overline rv">Professional record</div>
+
+    <div class="work-item rv">
+      <div class="work-idx">01</div>
+      <div class="work-body">
+        <div class="work-top">
+          <div class="work-title-block">
+            <div class="work-co">Dawell Lifescience <span class="work-co-badge">Odoo Certified Partner</span></div>
+            <div class="work-title">Strategic Manager<br>&amp; ERP Project Lead</div>
+          </div>
+          <div class="work-date">Sep 2024 — Present</div>
+        </div>
+        <div class="work-intro">
+          I work at a Certified Odoo Partner — which means I scope, implement, and deliver ERP for external clients, not just use it internally. I run Agile teams, manage client projects end to end, and bridge the gap between what businesses need and what systems can do.
+        </div>
+        <div class="work-wins">
+          <div class="win"><div class="win-label">Agile Leadership</div><div class="win-text">Led 2 cross-functional teams of 10+ people. Ran sprint planning, standups, reviews, and retros as Scrum Master. Delivery speed improved by 25%.</div></div>
+          <div class="win"><div class="win-label">ERP Delivery</div><div class="win-text">Owned end-to-end Odoo rollouts for multiple clients — requirements, gap analysis, UAT, go-live, user training, and post-live support across trading, equipment, and green infrastructure sectors.</div></div>
+          <div class="win"><div class="win-label">Process Automation</div><div class="win-text">Automated 6 manual workflows across Sales, Inventory, and Accounting modules. Cut manual processing by 30%.</div></div>
+          <div class="win"><div class="win-label">Reporting & Dashboards</div><div class="win-text">Built live Power BI and Excel dashboards for KPI tracking and management decisions. Reporting accuracy up 40%.</div></div>
+          <div class="win"><div class="win-label">Business Analysis</div><div class="win-text">Conducted gap analysis and requirements gathering with client stakeholders. Translated business needs into system workflows and configuration specs.</div></div>
+          <div class="win"><div class="win-label">Stakeholder Management</div><div class="win-text">Coordinated clients, vendors, developers, and C-suite contacts simultaneously across live multi-client project delivery.</div></div>
+        </div>
+        <div class="work-tags">
+          <span class="wtag">Scrum Master</span><span class="wtag">Odoo ERP</span><span class="wtag">Agile</span>
+          <span class="wtag">Power BI</span><span class="wtag">UAT</span><span class="wtag">Change Management</span>
+          <span class="wtag">Business Analysis</span><span class="wtag">Client Delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item rv">
+      <div class="work-idx">02</div>
+      <div class="work-body">
+        <div class="work-top">
+          <div class="work-title-block">
+            <div class="work-co">Mobility Foresight</div>
+            <div class="work-title">Market Research Analyst</div>
+          </div>
+          <div class="work-date">Mar – Apr 2024</div>
+        </div>
+        <div class="work-intro">Deep research into EV, autonomous driving, and smart infrastructure. Produced strategic reports on market opportunities, risks, and competitive positioning — the kind of analysis that shapes investment decisions.</div>
+        <div class="work-tags">
+          <span class="wtag">Market Research</span><span class="wtag">EV & Mobility</span>
+          <span class="wtag">Competitive Analysis</span><span class="wtag">Strategic Reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item rv">
+      <div class="work-idx">03</div>
+      <div class="work-body">
+        <div class="work-top">
+          <div class="work-title-block">
+            <div class="work-co">SKF India</div>
+            <div class="work-title">Business Analyst Intern</div>
+          </div>
+          <div class="work-date">Apr – Jun 2023</div>
+        </div>
+        <div class="work-intro">Two-phase internship — customer analysis in the mobility sector, then lead generation research in manufacturing. Ran primary research, built insight reports, worked with cross-functional teams to convert findings into actionable strategy.</div>
+        <div class="work-tags">
+          <span class="wtag">Business Analysis</span><span class="wtag">Customer Research</span>
+          <span class="wtag">Lead Generation</span><span class="wtag">Strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAPABILITY ══ -->
+<section class="cap-section" id="skills">
+  <div class="cap-inner">
+    <div class="overline rv">Capability stack</div>
+    <div class="cap-hed rv">What I<br>bring to<br>every <span>project</span></div>
+    <div class="cap-grid">
+      <div class="cap-cell rv"><div class="cap-n">01</div><span class="cap-ico">⚙</span><div class="cap-name">Agile & Scrum</div><div class="cap-body">CSM certified. I've run real client-facing sprints — not workshop simulations. I know what blockers look like and how to remove them fast.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">02</div><span class="cap-ico">◈</span><div class="cap-name">ERP Implementation</div><div class="cap-body">End-to-end Odoo delivery across multiple client industries. Scoping to go-live — I've owned every phase on real projects.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">03</div><span class="cap-ico">◎</span><div class="cap-name">Business Analysis</div><div class="cap-body">Requirements gathering, gap analysis, process mapping across client industries. I speak both business and technical — rare combination at this level.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">04</div><span class="cap-ico">▦</span><div class="cap-name">Power BI & Excel</div><div class="cap-body">Built live KPI dashboards that management actually uses to make decisions — not just screenshots for presentation decks.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">05</div><span class="cap-ico">◇</span><div class="cap-name">Process Improvement</div><div class="cap-body">Six Sigma Green Belt. Cut 30% of manual work at Dawell. I don't just identify inefficiency — I redesign the process and prove the result.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">06</div><span class="cap-ico">◉</span><div class="cap-name">Strategic Thinking</div><div class="cap-body">IIM MBA + deep analytical training = I can diagnose any business system at depth. Complex problems are where I do my best work.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">07</div><span class="cap-ico">⊕</span><div class="cap-name">Stakeholder Management</div><div class="cap-body">Managed vendors, C-suite clients, developers, and end users simultaneously on live projects. Communication that keeps everyone moving.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg"></div></div></div>
+      <div class="cap-cell rv"><div class="cap-n">08</div><span class="cap-ico">≋</span><div class="cap-name">Market Research</div><div class="cap-body">Primary and secondary research across mobility, manufacturing, and green infrastructure. I find the signal in the noise and turn it into decisions.</div><div class="cbar"><div class="cseg on"></div><div class="cseg on"></div><div class="cseg on"></div><div class="cseg"></div><div class="cseg"></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ══ CASE STUDIES ══ -->
+<section class="cs-section" id="casestudies">
+  <div class="cs-inner">
+    <div class="overline rv">// IT Delivery Portfolio</div>
+    <div class="cs-intro-row rv">
+      <div class="cs-hed">Client<br>case <span>studies</span></div>
+      <div class="cs-intro-note">
+        Four real ERP implementations delivered as part of Dawell's Odoo partner practice. Each project owned end-to-end — from requirements to go-live.
+      </div>
+    </div>
+
+    <!-- ══ CLIENT 1: WILDREX ══ -->
+    <div class="cs-item rv">
+      <div class="cs-topbar">
+        <div class="cs-client-block">
+          <div class="cs-num">Case Study 01</div>
+          <div class="cs-client">Wildrex Solutions</div>
+          <div class="cs-client-tagline">Manufacturer &amp; Trader — Animal Rescue Equipment, Fire Rescue Equipment, Forest Safety Products · Maharashtra</div>
+        </div>
+        <div class="cs-meta-pills">
+          <span class="cs-pill">Manufacturing &amp; Trading</span>
+          <span class="cs-pill green">Odoo ERP Rollout</span>
+          <span class="cs-pill white">Rescue &amp; Safety Products</span>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-challenge">
+          <div class="cs-challenge-label">
+            <small>Business Context</small>
+            The Challenge
+          </div>
+          <div class="cs-challenge-text">
+            <p>Wildrex Solutions operates across two product lines — animal rescue equipment and fire rescue equipment — each with separate procurement cycles, supplier networks, and sales channels. Before the Odoo implementation, inventory was tracked across disconnected spreadsheets, purchase orders were raised manually, and there was no single view of stock availability across product categories.</p>
+            <p>The sales team was quoting lead times without real-time inventory visibility, causing missed delivery commitments. Finance had no live view of outstanding receivables, and month-end reconciliation took 4–5 working days. As order volumes grew, the manual system was becoming a ceiling on growth — not just an inconvenience.</p>
+          </div>
+        </div>
+
+        <div class="cs-two-col">
+          <div>
+            <div class="cs-col-head">Odoo Modules Implemented</div>
+            <div class="cs-modules">
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Inventory Management</div><div class="cs-mod-desc">Multi-warehouse stock tracking across rescue &amp; fire product lines</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Purchase</div><div class="cs-mod-desc">Automated PO generation, vendor management, GRN workflows</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Sales</div><div class="cs-mod-desc">Quotation to invoice pipeline with live stock checks</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Accounting</div><div class="cs-mod-desc">Receivables, payables, bank reconciliation, P&amp;L reporting</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Manufacturing</div><div class="cs-mod-desc">BOM configuration for assembled rescue kits and equipment sets</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cs-col-head">What I Did</div>
+            <div class="cs-did">
+              <div class="cs-did-item"><strong>Requirements Scoping</strong>Conducted 3 rounds of discovery sessions with the operations head, warehouse team, and finance manager to map existing workflows and identify pain points across both product lines.</div>
+              <div class="cs-did-item"><strong>Gap Analysis</strong>Documented the delta between Wildrex's existing processes and Odoo's standard workflows. Identified 4 custom configurations needed for their rescue kit BOM structure.</div>
+              <div class="cs-did-item"><strong>Data Migration</strong>Cleaned and migrated 2+ years of inventory master data, vendor records, and customer accounts from Excel into Odoo with zero data loss.</div>
+              <div class="cs-did-item"><strong>UAT &amp; Training</strong>Ran 2-week user acceptance testing with warehouse staff and sales team. Delivered hands-on training for 12 users across functions before go-live.</div>
+              <div class="cs-did-item"><strong>Go-Live &amp; Stabilisation</strong>Managed go-live cutover, monitored for 4 weeks post-launch, resolved 6 configuration issues raised by users in the stabilisation phase.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-journey">
+          <div class="cs-journey-head">Project delivery phases</div>
+          <div class="cs-phases">
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Discovery</div><div class="cs-phase-desc">Stakeholder interviews, AS-IS process mapping, pain point documentation</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Solution Design</div><div class="cs-phase-desc">Module selection, configuration specs, BOM design for rescue kits</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Configuration &amp; Data</div><div class="cs-phase-desc">Odoo setup, master data migration, custom workflow configuration</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">UAT</div><div class="cs-phase-desc">User testing across warehouse, sales, finance — 2-week cycle</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Go-Live</div><div class="cs-phase-desc">Cutover, live monitoring, user support, issue resolution</div></div>
+            <div class="cs-phase"><div class="cs-phase-name">Stabilisation</div><div class="cs-phase-desc">4-week post-launch support, dashboard setup, adoption tracking</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-outcomes">
+        <div class="cs-outcomes-head">Outcomes delivered</div>
+        <div class="cs-outcome-grid">
+          <div class="cs-outcome"><div class="cs-outcome-num">100%</div><div class="cs-outcome-lbl">Real-time inventory visibility across both product lines</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">4→1</div><div class="cs-outcome-lbl">Days for month-end reconciliation reduced from 4–5 to same day</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">12</div><div class="cs-outcome-lbl">Users trained and live on Odoo at go-live</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">0</div><div class="cs-outcome-lbl">Manual spreadsheets remaining in core operations post go-live</div></div>
+        </div>
+        <div class="cs-quote">"Before this, our warehouse and accounts never had the same number. Now when a sales order is raised, inventory updates automatically and finance sees it in real time. That alone changed how we operate." — Operations Head, Wildrex Solutions</div>
+      </div>
+    </div>
+
+    <!-- ══ CLIENT 2: SAI SAMARTH ══ -->
+    <div class="cs-item rv">
+      <div class="cs-topbar">
+        <div class="cs-client-block">
+          <div class="cs-num">Case Study 02</div>
+          <div class="cs-client">Sai Samarth Playing Equipments</div>
+          <div class="cs-client-tagline">Manufacturer &amp; Supplier — Outdoor Playing Equipment, Forest &amp; Park Infrastructure, Gym Equipment · Maharashtra</div>
+        </div>
+        <div class="cs-meta-pills">
+          <span class="cs-pill">Manufacturing &amp; Supply</span>
+          <span class="cs-pill green">Odoo ERP Rollout</span>
+          <span class="cs-pill white">Parks &amp; Recreation Sector</span>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-challenge">
+          <div class="cs-challenge-label">
+            <small>Business Context</small>
+            The Challenge
+          </div>
+          <div class="cs-challenge-text">
+            <p>Sai Samarth manufactures and supplies playing equipment and forest tools to government bodies, municipalities, and private parks across Maharashtra. Their order cycle involves custom fabrication — each client order often has unique specifications for size, colour, and installation requirements. This made standard off-the-shelf ERP configurations insufficient.</p>
+            <p>The core problems: production planning was disconnected from sales orders, so the shop floor never had accurate job cards. Procurement raised purchase orders reactively — material shortages were discovered mid-production. And because invoicing was handled manually in Tally, there was no link between job completion, delivery, and billing — revenue leakage was happening but couldn't be quantified.</p>
+          </div>
+        </div>
+
+        <div class="cs-two-col">
+          <div>
+            <div class="cs-col-head">Odoo Modules Implemented</div>
+            <div class="cs-modules">
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Manufacturing</div><div class="cs-mod-desc">Custom job orders, BOM per product variant, shop floor tracking</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Sales &amp; CRM</div><div class="cs-mod-desc">Custom order specs, quotation management, client follow-up pipeline</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Purchase</div><div class="cs-mod-desc">MRP-linked procurement, vendor comparison, approval workflows</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Inventory</div><div class="cs-mod-desc">Raw material tracking, finished goods, installation kit dispatch</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Invoicing</div><div class="cs-mod-desc">Delivery-linked auto-invoicing, replacing manual Tally billing</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cs-col-head">What I Did</div>
+            <div class="cs-did">
+              <div class="cs-did-item"><strong>Process Mapping (AS-IS)</strong>Spent 2 sessions on the shop floor observing the production flow for playing equipment. Mapped the actual job order cycle — from sales order to fabrication to delivery — and documented where the breaks were.</div>
+              <div class="cs-did-item"><strong>BOM Configuration</strong>Configured Bills of Materials for 18 product variants in Odoo Manufacturing — each with different raw material inputs for steel, powder coating, fasteners, and assembly components.</div>
+              <div class="cs-did-item"><strong>Custom Order Workflow</strong>Designed a custom sales order flow in Odoo to capture client-specific specifications (dimensions, installation type, colour) so the shop floor job card was generated directly from the sales order — no manual re-entry.</div>
+              <div class="cs-did-item"><strong>Tally Migration</strong>Worked with the accounts team to migrate 18 months of open receivables, vendor balances, and GL data from Tally into Odoo Accounting with reconciliation sign-off.</div>
+              <div class="cs-did-item"><strong>Training &amp; Go-Live</strong>Trained 15 users — production manager, 3 shop floor supervisors, sales team, and accounts. Go-live was phased: Sales + Manufacturing first, then Finance in week 3.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-journey">
+          <div class="cs-journey-head">Project delivery phases</div>
+          <div class="cs-phases">
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Shop Floor Audit</div><div class="cs-phase-desc">On-site process observation, job order cycle mapping, gap identification</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">BOM Design</div><div class="cs-phase-desc">18 product variant BOMs configured, raw material linkages built</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Custom Workflow</div><div class="cs-phase-desc">Sales-to-job-card automation, client specification capture designed</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Tally Migration</div><div class="cs-phase-desc">18 months financial data migrated, reconciled, signed off</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Phased Go-Live</div><div class="cs-phase-desc">Sales + Mfg live in week 1. Finance live in week 3. Zero downtime.</div></div>
+            <div class="cs-phase"><div class="cs-phase-name">Adoption Check</div><div class="cs-phase-desc">4-week review — user adoption rate, pending issues, dashboard finalisation</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-outcomes">
+        <div class="cs-outcomes-head">Outcomes delivered</div>
+        <div class="cs-outcome-grid">
+          <div class="cs-outcome"><div class="cs-outcome-num">18</div><div class="cs-outcome-lbl">Product BOMs configured and live in manufacturing</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">0</div><div class="cs-outcome-lbl">Manual job cards — all auto-generated from sales orders</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">15</div><div class="cs-outcome-lbl">Users trained across production, sales, and accounts</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">3 wk</div><div class="cs-outcome-lbl">Full phased go-live completed within 3 weeks of UAT sign-off</div></div>
+        </div>
+        <div class="cs-quote">"The production manager used to call accounts every day to check what was dispatched and what was billed. That call doesn't happen anymore — everything is in one place." — Director, Sai Samarth Playing Equipments</div>
+      </div>
+    </div>
+
+    <!-- ══ CLIENT 3: VEDIKA ══ -->
+    <div class="cs-item rv">
+      <div class="cs-topbar">
+        <div class="cs-client-block">
+          <div class="cs-num">Case Study 03</div>
+          <div class="cs-client">Vedika</div>
+          <div class="cs-client-tagline">Manufacturer &amp; Supplier — Greenhouse Structures, Shade Net, Green Net, Park Development, Agri Infrastructure · India</div>
+        </div>
+        <div class="cs-meta-pills">
+          <span class="cs-pill">Agri &amp; Infrastructure</span>
+          <span class="cs-pill green">Odoo ERP Rollout</span>
+          <span class="cs-pill white">Greenhouse &amp; Park Sector</span>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-challenge">
+          <div class="cs-challenge-label">
+            <small>Business Context</small>
+            The Challenge
+          </div>
+          <div class="cs-challenge-text">
+            <p>Vedika operates across three distinct product segments — greenhouse structures and polyhouse solutions, shade net and green net supply, and park development infrastructure. Each segment had different customer types: farmers and agri-businesses for the greenhouse products, government bodies and contractors for park development, and general B2B buyers for netting products.</p>
+            <p>The fragmentation across segments meant there was no unified view of the business. Each product line tracked its own orders independently. Project-based work like greenhouse installation and park development had no job costing system — the company was billing on estimates without tracking actual material and labour costs against each project. Profitability per project was unknown. Cash flow forecasting was guesswork.</p>
+          </div>
+        </div>
+
+        <div class="cs-two-col">
+          <div>
+            <div class="cs-col-head">Odoo Modules Implemented</div>
+            <div class="cs-modules">
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Project &amp; Job Costing</div><div class="cs-mod-desc">Per-project cost tracking for greenhouse &amp; park installation work</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Sales</div><div class="cs-mod-desc">Multi-segment quotation management, product variant pricing</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Inventory</div><div class="cs-mod-desc">Netting, greenhouse materials, park equipment — unified stock view</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Purchase</div><div class="cs-mod-desc">Project-linked procurement, vendor management, approval chains</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Accounting</div><div class="cs-mod-desc">Project P&amp;L, cash flow reporting, multi-segment revenue tracking</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cs-col-head">What I Did</div>
+            <div class="cs-did">
+              <div class="cs-did-item"><strong>Multi-Segment Requirements Gathering</strong>Ran separate discovery sessions with each business unit head — greenhouse, netting, and park development — to understand the different sales cycles, cost drivers, and reporting needs of each segment.</div>
+              <div class="cs-did-item"><strong>Job Costing Framework Design</strong>Designed a project-based job costing structure in Odoo for installation projects — mapping material costs, subcontractor costs, and internal labour to each project so actual vs estimated profitability could be tracked live.</div>
+              <div class="cs-did-item"><strong>Unified Product Catalogue</strong>Consolidated three separate product lists into a single Odoo product catalogue with variant-based pricing — greenhouse models, netting types, and park equipment — with segment-specific pricelists.</div>
+              <div class="cs-did-item"><strong>Cash Flow Dashboard</strong>Built a Power BI dashboard linked to Odoo data showing project-wise cash inflows, pending receivables by segment, and procurement commitments — giving management a live 30-day cash view for the first time.</div>
+              <div class="cs-did-item"><strong>Change Management</strong>The shift from segment-isolated operations to a unified system required active change management. Ran 3 change workshops with team leads before go-live to address resistance and build ownership.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-journey">
+          <div class="cs-journey-head">Project delivery phases</div>
+          <div class="cs-phases">
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Segment Discovery</div><div class="cs-phase-desc">Separate sessions per business unit — greenhouse, netting, park dev</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Job Cost Design</div><div class="cs-phase-desc">Cost framework built for installation projects — material, labour, sub-contractor</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Unified Catalogue</div><div class="cs-phase-desc">3 product lists merged, variant pricing configured, pricelists set</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Change Workshops</div><div class="cs-phase-desc">3 sessions with team leads to drive adoption before go-live</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Go-Live</div><div class="cs-phase-desc">All 3 segments live simultaneously with parallel run for 2 weeks</div></div>
+            <div class="cs-phase"><div class="cs-phase-name">Dashboard Delivery</div><div class="cs-phase-desc">Power BI cash flow dashboard built and handed over post-stabilisation</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-outcomes">
+        <div class="cs-outcomes-head">Outcomes delivered</div>
+        <div class="cs-outcome-grid">
+          <div class="cs-outcome"><div class="cs-outcome-num">3</div><div class="cs-outcome-lbl">Business segments unified into one ERP — first time in company history</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">Live</div><div class="cs-outcome-lbl">Project P&amp;L visibility per installation — was previously unknown</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">30d</div><div class="cs-outcome-lbl">Rolling cash flow forecast now visible in real time via Power BI</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">1</div><div class="cs-outcome-lbl">Unified product catalogue replacing 3 separate disconnected lists</div></div>
+        </div>
+        <div class="cs-quote">"We never knew which projects were actually profitable until after they closed. Now we can see cost vs estimate on every live project. That changed how we price our work." — Managing Director, Vedika</div>
+      </div>
+    </div>
+
+    <!-- ══ CLIENT 4: AVGE ══ -->
+    <div class="cs-item rv">
+      <div class="cs-topbar">
+        <div class="cs-client-block">
+          <div class="cs-num">Case Study 04</div>
+          <div class="cs-client">AVGE</div>
+          <div class="cs-client-tagline">Manufacturer &amp; Supplier — Power Products, Forest Fire Fighting Equipment, Disaster Rescue Products, Gym &amp; Playing Equipment · India</div>
+        </div>
+        <div class="cs-meta-pills">
+          <span class="cs-pill">Multi-Category Manufacturing</span>
+          <span class="cs-pill green">Odoo ERP Rollout</span>
+          <span class="cs-pill white">Safety &amp; Fitness Products</span>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-challenge">
+          <div class="cs-challenge-label">
+            <small>Business Context</small>
+            The Challenge
+          </div>
+          <div class="cs-challenge-text">
+            <p>AVGE is a multi-category manufacturer operating across four distinct product lines: power products, forest fire fighting equipment, disaster rescue gear, and gym &amp; playing equipment. The breadth of their catalogue made supply chain management highly complex — different raw material suppliers for each category, different regulatory and quality standards, and customers ranging from government defence bodies to municipal parks.</p>
+            <p>The primary challenge was inventory and procurement chaos. With four separate product lines operating semi-independently, stock was over-ordered in some categories and out of stock in others simultaneously. Purchase decisions were made on instinct rather than demand signals. Additionally, compliance documentation for forest fire and rescue equipment — government tender requirements — was maintained manually in files, creating risk during audits.</p>
+          </div>
+        </div>
+
+        <div class="cs-two-col">
+          <div>
+            <div class="cs-col-head">Odoo Modules Implemented</div>
+            <div class="cs-modules">
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Inventory &amp; Warehousing</div><div class="cs-mod-desc">Category-wise stock management, reorder rules, multi-location</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Purchase &amp; MRP</div><div class="cs-mod-desc">Demand-driven procurement, supplier management, RFQ workflows</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Sales &amp; CRM</div><div class="cs-mod-desc">Tender quotation pipeline, government client management</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Manufacturing</div><div class="cs-mod-desc">Product-line BOMs, quality checkpoints, batch tracking for rescue gear</div></div>
+              <div class="cs-module"><div class="cs-mod-dot"></div><div class="cs-mod-name">Document Management</div><div class="cs-mod-desc">Compliance document storage linked to product records for tender submissions</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cs-col-head">What I Did</div>
+            <div class="cs-did">
+              <div class="cs-did-item"><strong>Cross-Category Requirements Analysis</strong>Mapped all four product lines separately before designing a unified configuration. Each category had different procurement lead times, quality control steps, and customer types — all needed to be accommodated within one Odoo instance.</div>
+              <div class="cs-did-item"><strong>Reorder Rule Configuration</strong>Set up intelligent reorder rules in Odoo for each product category based on historical consumption data — eliminating the guesswork-based procurement that was causing both overstock and stockout simultaneously.</div>
+              <div class="cs-did-item"><strong>Tender Pipeline in CRM</strong>Configured a custom CRM pipeline for government tender management — stages from tender receipt through bid preparation, submission, evaluation, and order award — giving the sales team a structured view of all live tenders.</div>
+              <div class="cs-did-item"><strong>Compliance Document Linking</strong>Structured product records in Odoo to attach compliance certificates, test reports, and quality documentation directly to each product — so tender submission packs could be assembled in minutes, not days.</div>
+              <div class="cs-did-item"><strong>Sprint-Based Delivery</strong>This was the most complex project in scope — ran as a 3-sprint Agile delivery over 10 weeks. Each sprint covered 1–2 product line go-lives, allowing testing and stabilisation before onboarding the next category.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-journey">
+          <div class="cs-journey-head">Project delivery phases — 3-sprint Agile rollout</div>
+          <div class="cs-phases">
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Sprint 0</div><div class="cs-phase-desc">All-category discovery, data audit, configuration architecture design</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Sprint 1</div><div class="cs-phase-desc">Inventory + Purchase live for Power Products &amp; Gym Equipment</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Sprint 2</div><div class="cs-phase-desc">Manufacturing + Rescue &amp; Fire product lines onboarded, BOMs configured</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">Sprint 3</div><div class="cs-phase-desc">CRM tender pipeline + document management + Sales module live</div></div>
+            <div class="cs-phase"><div class="cs-phase-arrow"></div><div class="cs-phase-name">UAT &amp; Training</div><div class="cs-phase-desc">Cross-functional testing, 18 users trained, sign-off by department heads</div></div>
+            <div class="cs-phase"><div class="cs-phase-name">Full Go-Live</div><div class="cs-phase-desc">All 4 product lines live. 6-week hypercare support period.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-outcomes">
+        <div class="cs-outcomes-head">Outcomes delivered</div>
+        <div class="cs-outcome-grid">
+          <div class="cs-outcome"><div class="cs-outcome-num">4</div><div class="cs-outcome-lbl">Product lines unified into one Odoo instance — single source of truth</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">Auto</div><div class="cs-outcome-lbl">Reorder rules live — procurement now data-driven, not instinct-driven</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">18</div><div class="cs-outcome-lbl">Users trained and live across manufacturing, sales, and procurement</div></div>
+          <div class="cs-outcome"><div class="cs-outcome-num">10 wk</div><div class="cs-outcome-lbl">Full 4-product-line rollout completed in 10 weeks via Agile sprints</div></div>
+        </div>
+        <div class="cs-quote">"Pulling together a government tender pack used to take 2 days — finding the right certificates, test reports, product specs. Now it takes less than an hour. That alone was worth the entire project." — Sales Head, AVGE</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CERTS ══ -->
+<section class="certs-section">
+  <div class="certs-inner">
+    <div class="overline rv">Credentials</div>
+    <div class="cert-row rv"><div class="cert-i">01</div><div class="cert-org">Scrum Alliance</div><div class="cert-name">Certified ScrumMaster® (CSM)</div><div class="cert-yr">2025</div></div>
+    <div class="cert-row rv"><div class="cert-i">02</div><div class="cert-org">KPMG</div><div class="cert-name">Six Sigma Green Belt</div><div class="cert-yr">—</div></div>
+    <div class="cert-row rv"><div class="cert-i">03</div><div class="cert-org">Microsoft · Coursera</div><div class="cert-name">Data Modeling in Power BI</div><div class="cert-yr">—</div></div>
+    <div class="cert-row rv"><div class="cert-i">04</div><div class="cert-org">Henry Harvin</div><div class="cert-name">Strategy Consulting Certification</div><div class="cert-yr">—</div></div>
+    <div class="cert-row rv"><div class="cert-i">05</div><div class="cert-org">Finlatics</div><div class="cert-name">Business Analyst Certification</div><div class="cert-yr">—</div></div>
+    <div class="cert-row rv"><div class="cert-i">06</div><div class="cert-org">CAD · Engineering</div><div class="cert-name">CATIA · CREO · NX CAD</div><div class="cert-yr">2016</div></div>
+  </div>
+</section>
+
+<!-- ══ ORIGIN STORY — placed here, after credibility is established ══ -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="overline rv">// The making of</div>
+    <div class="story-hed rv">
+      Where the depth<br>
+      actually <em>comes from</em>
+    </div>
+
+    <div class="story-cols">
+      <div class="story-left rv">
+        <div class="story-lede">
+          Before the MBA, before Dawell, before any of this — I spent six years trying to become an IES officer. I cleared the Prelims. I appeared in the Mains. The final result didn't go my way.
+        </div>
+        <div class="story-body">
+          <p>The UPSC Engineering Services exam is one of India's most demanding competitive processes. It requires mastering Mechanical Engineering at depth, alongside economics, policy, law, and general studies — simultaneously, for years. I studied 10+ hours a day, structured my own curriculum, tracked my own progress, and kept going without external validation or guaranteed outcomes.</p>
+          <p>When it didn't work out, I applied to IIM Nagpur. I got in. And I carried everything those six years had built — into every case study, every sprint, every client conversation I've had since.</p>
+          <p>The analytical depth I bring to requirements gathering, the composure I have in high-pressure project deliveries, the ability to hold complexity without getting overwhelmed — none of that came from an MBA classroom. It was already there.</p>
+        </div>
+      </div>
+      <div class="story-right rv">
+        <div class="story-fact">
+          <div class="sf-label">What UPSC prep actually is</div>
+          <div class="sf-text"><strong>6 years. 10+ hours/day.</strong> Mechanical Engineering depth + Economics + Policy + Law + Essay writing + Quantitative reasoning. All self-managed. No shortcuts. Cleared Prelims. Appeared in Mains.</div>
+        </div>
+        <div class="story-fact">
+          <div class="sf-label">The pivot</div>
+          <div class="sf-text">Didn't get the result. Applied to IIM Nagpur immediately. Got in. Graduated 2024. <strong>Zero time lost feeling sorry.</strong> Full credit transferred forward.</div>
+        </div>
+        <div class="story-fact">
+          <div class="sf-label">Why it matters to you</div>
+          <div class="sf-text">When you hire someone who survived 6 years of self-directed high-stakes preparation and came out with an IIM MBA on the other side — you're hiring someone who <strong>does not quit, does not panic, and does not stop thinking</strong> when things get hard.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="what-it-built rv">
+      <div class="wib-hed">What those 6 years actually built</div>
+      <div class="wib-grid">
+        <div class="wib-cell"><span class="wib-ico">◎</span><div class="wib-title">Structured thinking</div><div class="wib-sub">Break any complex system into solvable parts — a skill no 2-year MBA manufactures</div></div>
+        <div class="wib-cell"><span class="wib-ico">◇</span><div class="wib-title">Pressure composure</div><div class="wib-sub">High-stakes delivery doesn't rattle me. I've sat harder tests than most project reviews</div></div>
+        <div class="wib-cell"><span class="wib-ico">⊕</span><div class="wib-title">Self-direction</div><div class="wib-sub">I don't need hand-holding to produce results. I built an entire study system from scratch</div></div>
+        <div class="wib-cell"><span class="wib-ico">◉</span><div class="wib-title">Analytical depth</div><div class="wib-sub">Policy, economics, law, engineering — I think across domains. Most specialists think in one</div></div>
+        <div class="wib-cell"><span class="wib-ico">≋</span><div class="wib-title">Adaptability</div><div class="wib-sub">Pivoted from a 6-year path to MBA to IT delivery. Each time: full commitment, full results</div></div>
+        <div class="wib-cell"><span class="wib-ico">▦</span><div class="wib-title">Long-game thinking</div><div class="wib-sub">I invest deeply in what I do. No shortcuts. No half-measures. Outcomes that hold</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section class="edu-section">
+  <div class="edu-inner">
+    <div class="overline rv">Academic record</div>
+    <div class="edu-row rv">
+      <div class="edu-yr">2024</div>
+      <div class="edu-info">
+        <h3>MBA — Strategy & Operations</h3>
+        <div class="edu-inst">Indian Institute of Management (IIM) Nagpur</div>
+        <div class="edu-note">2nd Runner-Up, OPSPROBE 2.0 · Volunteer, Tangerine Trails Management Fest</div>
+      </div>
+      <div class="edu-badge">2.741 GPA</div>
+    </div>
+    <div class="edu-row rv">
+      <div class="edu-yr">2016–22</div>
+      <div class="edu-info">
+        <h3>UPSC Engineering Services (IES)</h3>
+        <div class="edu-inst">Union Public Service Commission of India</div>
+        <div class="edu-note">Cleared Preliminary · Appeared in Mains · 6 years full-time preparation</div>
+      </div>
+      <div class="edu-badge">Mains</div>
+    </div>
+    <div class="edu-row rv">
+      <div class="edu-yr">2016</div>
+      <div class="edu-info">
+        <h3>B.E. Mechanical Engineering</h3>
+        <div class="edu-inst">Pad. Dr. Vitthalrao Vikhe Patil COE, Ahmednagar</div>
+        <div class="edu-note">First Class · Paper presented at RAME-2016 on Adsorption Refrigeration Systems</div>
+      </div>
+      <div class="edu-badge">68.66%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-top rv">
+      <div class="contact-hed">Let's<br>talk.</div>
+      <div class="contact-note">Looking for IT delivery, Scrum Master, Business Analyst, or Strategy roles. Desk-based. Pune or remote. If you think there's a fit — reach out directly.</div>
+    </div>
+    <div class="clinks rv">
+      <a href="tel:+919923360200" class="clink">
+        <div class="clink-ico">✆</div>
+        <div><div class="clink-lbl">Phone</div><div class="clink-val">+91 99233 60200</div></div>
+      </a>
+      <a href="mailto:ritujagagare@gmail.com" class="clink">
+        <div class="clink-ico">@</div>
+        <div><div class="clink-lbl">Email</div><div class="clink-val">ritujagagare@gmail.com</div></div>
+      </a>
+      <a href="https://linkedin.com/in/rituja-gagare-08b961214" target="_blank" class="clink">
+        <div class="clink-ico">in</div>
+        <div><div class="clink-lbl">LinkedIn</div><div class="clink-val">rituja-gagare-08b961214</div></div>
+      </a>
+      <a href="Rituja_Katore_ATS_Resume.docx" class="clink">
+        <div class="clink-ico">↓</div>
+        <div><div class="clink-lbl">Resume</div><div class="clink-val">Download CV (.docx)</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Rituja Katore · 2025</div>
+  <div class="fr">IIM Nagpur · Certified ScrumMaster® · Odoo Partner</div>
+</footer>
+
+<script>
+// Case study toggle
+function toggleCS(id){
+  const card = document.getElementById(id);
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.cs-card').forEach(c => c.classList.remove('open'));
+  if(!wasOpen){
+    card.classList.add('open');
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  }
+}
+// Case study accordion
+function toggleCS(id){
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.cs-card').forEach(c => c.classList.remove('open'));
+  if(!isOpen){
+    card.classList.add('open');
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('cs1').classList.add('open');
+});
+
+const cur = document.getElementById('cur');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.cap-cell,.cert-row,.win,.wib-cell,.cs-card-head').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+});
+
+// Nav scroll style
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal with stagger
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      setTimeout(() => el.classList.add('in'), parseFloat(el.dataset.d || 0));
+      obs.unobserve(el);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.rv,.rvl').forEach((el, i) => {
+  const sibs = Array.from(el.parentElement.children).filter(c => c.classList.contains('rv') || c.classList.contains('rvl'));
+  el.dataset.d = sibs.indexOf(el) * 75;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
